@@ -1,0 +1,52 @@
+L1:		call sub1		; subroutine call to check and read input
+L2:		call sub2		; subroutine call to compute function
+L3:		call sub3		; subroutine call to print result
+done:		stop			; stop program
+
+
+sub1:		read 			; read input
+		store n			; store input in memory
+		push			; push subtracted value into stack
+		return L2		; return to main
+
+
+sub2:		pop 			; pop subtracted value from stack
+		store n			; store 'n' for use
+		subtract const1		; n-1
+		jmpz case2		; jump to case 2 if input =1
+		jmpn case1		; jump to case 1 if input <1
+
+
+case3:	        pop
+        	load n			; get original value n>1
+		multiply  n     	; multiply n^2
+		store n^2 		; store n^2 for use
+		load n			; get original value
+		multiply const3 	; multiple 3n
+		add n^2		        ; add +1
+		add const5		; add n^2+3n+1
+		return L3		; return to main
+
+
+case2:		load n			; get original value n=1
+		subtract const4		; subtract n-5
+		push			; push subtracted value into stack
+		return L3		; return to main
+
+
+case1:		load n 			; get original value n<1
+		multiply n		; multiply with n to get n^2
+		push 			; push result to stack
+		return L3		; return to main
+
+
+sub3:  		pop 			; pop result from stack
+		write 			; write result
+		return done		; return to main
+n:     		.data 2 0		; storage for n
+n^2:     	.data 2 0		; storage for n^2	
+const1: 	.data 2 1		; storage for (n-1)
+const2:		.data 2 3		; storage for 3n
+const3: 	.data 2 3		; storage for +1
+const4:		.data 2 5		; storage for (n-5)
+const5:         .data 2 1		; storage for n^2+3n+1

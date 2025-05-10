@@ -1,0 +1,25 @@
+0011000000000000 ;0: 3 0 Read n
+0010000000101000 ;2: 2 40 Store n in location
+0110000000101100 ;4: 6 44 Subtract 1 (n - 1)
+1011000000011010 ;6: 11 26 if n < 1 jumpn to location 24 (n^2)
+1010000000100000 ;8: 10 32 if n = 1 jumpz to location 22 (n-5)
+0001000000101000 ;10: 1 40 Load n from storage location
+0111000000101110 ;12: 7 46 Multiply n by 3 (3n)
+0010000000101010 ;14: 2 42 Store 3n in location
+0001000000101000 ;16: 1 40 Load n from storage location
+0111000000101000 ;18: 7 40 Multiply n by n (n^2)
+0101000000101010 ;20: 5 42 Add 3n (n^2 + 3n)
+0101000000101100 ;22: 5 44 Add 1 (n^2 + 3n + 1)
+1001000000100100 ;24: 9 36 Jump to print output
+0001000000101000 ;26: 1 40 Load n from storage location
+0111000000101000 ;28: 7 40 Multiply n by n (n^2)
+1001000000100100 ;30: 9 36 Jump to print output
+0001000000101000 ;32: 1 40 Load n from storage location
+0110000000110000 ;34: 6 48 Sub 5 from n
+0100000000000000 ;36: 4 0 Write / print output
+0000000000000000 ;38: 0 0 Stop
+0000000000000000 ;40: 0 0 Storage for n
+0000000000000000 ;42: 0 0 Storage for 3n
+0000000000000001 ;44: 0 1 Storage for constant 1
+0000000000000011 ;46: 0 3 Storage for constant 3
+0000000000000101 ;48: 0 5 Storage for constant 5
